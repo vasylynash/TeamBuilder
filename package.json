@@ -1,0 +1,23 @@
+{
+  "name": "teambuilder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasylynash/TeamBuilder.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasylynash/TeamBuilder/issues"
+  },
+  "homepage": "https://github.com/vasylynash/TeamBuilder#readme",
+  "dependencies": {
+    "inquirer": "^8.1.0",
+    "jest": "^27.0.1"
+  }
+}
