@@ -1,5 +1,9 @@
-<div class="team col-sm-2 ml-2 mb-3 p-2 mt-2 rounded">
-    <p>Name: {{name}}<span id="name"></span></p>
-    <p>Email: {{email}}<span id="email"></span></p>
-    <p>Office number: {{officeNumber}}<span id="officeNumber"></span></p>
+<div class="card team" style="width: 18rem;">
+    <div class="card-body team">
+        <h5 class="card-title">{{name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+        <p class="card-text">Employee ID: {{id}}</p>
+        <p class="card-text">Office number: {{officeNumber}}</p>
+        <p class="card-text">Email: <a href="mailto:{{email}}">{{email}}</a></p>
+    </div>
 </div>

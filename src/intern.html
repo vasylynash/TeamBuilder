@@ -1,13 +1,9 @@
-<div class="team col-sm-2 ml-2 mb-3 p-2 mt-2 rounded">
-    <div class="card-header">
-        <h2 class="card-title">{{name}}</h2>
-        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Intern</h3>
-    </div>
-    <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">Employee ID: {{employeeID}}</li>
-            <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{email}}</a></li>
-            <li class="list-group-item">School: {{school}}</li>
-        </ul>
+<div class="card team" style="width: 18rem;">
+    <div class="card-body team">
+        <h5 class="card-title">{{name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
+        <p class="card-text">Employee ID: {{id}}</p>
+        <p class="card-text">School: {{school}}</p>
+        <p class="card-text">Email: <a href="mailto:{{email}}">{{email}}</a></p>
     </div>
 </div>

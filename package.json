@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/vasylynash/TeamBuilder#readme",
   "dependencies": {
+    "chalk": "^4.1.1",
     "inquirer": "^8.1.0",
     "jest": "^27.0.1"
   }

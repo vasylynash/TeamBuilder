@@ -1,3 +1,5 @@
+const validateInput = require("./validation");
+
 const managerQuestions = [
     {
         type: "input",
@@ -36,26 +38,22 @@ const engineerQuestions = [
         type: "input",
         message: "Enter engineer's name",
         name: "name",
-        // when: (answers) => answers.addMemeber === "Engineer"
     },
     {
         type: "input",
         message: "Enter employee ID",
         name: "employeeID",
-        // when: (answers) => answers.addMemeber === "Engineer"
     },
     {
         type: "input",
         message: "Enter email address",
         name: "email",
         emailValidation: true,
-        // when: (answers) => answers.addMemeber === "Engineer"
     },
     {
         type: "input",
         message: "Enter GitHub username",
         name: "gitHub",
-        // when: (answers) => answers.addMemeber === "Engineer"
     },
 ];
 
@@ -64,28 +62,27 @@ const internQuestions = [
         type: "input",
         message: "Enter intern's name",
         name: "name",
-        // when: (answers) => answers.addMemeber === "Intern"
     },
     {
         type: "input",
         message: "Enter employee ID",
         name: "employeeID",
-        // when: (answers) => answers.addMemeber === "Intern"
     },
     {
         type: "input",
         message: "Enter email address",
         name: "email",
         emailValidation: true,
-        // when: (answers) => answers.addMemeber === "Intern"
     },
     {
         type: "input",
         message: "Enter school",
         name: "school",
-        // when: (answers) => answers.addMemeber === "Intern"
     },
 ]
+managerQuestions.forEach(el => el.validate = validateInput.bind(el));
+engineerQuestions.forEach(el => el.validate = validateInput.bind(el));
+internQuestions.forEach(el => el.validate = validateInput.bind(el));
 
 module.exports = {
     managerQuestions,
