@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;    
+}
+
+body {  
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;  
+}
+
+.jumbotron {
+    background-color: rgb(87, 159, 231);
+    color: white;
+}
+
+/* h3 {
+    font-weight: bold;
+} */
+
+
+.team {
+    font-size: 0.8em;
+    background-color: rgb(224, 229, 235);
+    color:black;
+}
+
+p {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
