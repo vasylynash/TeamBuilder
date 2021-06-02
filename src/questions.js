@@ -10,6 +10,7 @@ const managerQuestions = [
         type: "input",
         message: "Enter employee ID",
         name: "employeeID",
+        numberInput: true,
     },
     {
         type: "input",
@@ -21,6 +22,7 @@ const managerQuestions = [
         type: "input",
         message: "Enter office number",
         name: "officeNumber",
+        numberInput: true,
     },
 ];
 
@@ -43,6 +45,7 @@ const engineerQuestions = [
         type: "input",
         message: "Enter employee ID",
         name: "employeeID",
+        numberInput: true,
     },
     {
         type: "input",
@@ -67,6 +70,7 @@ const internQuestions = [
         type: "input",
         message: "Enter employee ID",
         name: "employeeID",
+        numberInput: true,
     },
     {
         type: "input",

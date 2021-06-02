@@ -4,6 +4,13 @@ function validateInput(input) {
     if (input === "") {
         console.log(chalk.red(`Please enter ${this.name}`));
         return false;
+    };
+    if (this.numberInput) {
+        const isValid = /[0-9]/.test(input);
+        if (!isValid) {
+            console.log(chalk.red(" Please enter a number"));
+        }
+        return isValid;
     }
     if (this.emailValidation) {
         const isValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/.test(input);
