@@ -9,7 +9,6 @@ class TemplateEngine {
 
         for (const [key, value] of Object.entries(data)) {
             const regex = new RegExp(`\{\{${key}\}\}`, "g");
-            // this.content = this.content.replace(`\{\{${key}\}\}`, value);
             this.content = this.content.replace(regex, value);
         }
     };

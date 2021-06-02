@@ -24,7 +24,7 @@ const managerQuestions = [
     },
 ];
 
-const addMemeberQuestion = [
+const addMemberQuestion = [
     {
         type: "list",
         message: "Add team member",
@@ -88,5 +88,5 @@ module.exports = {
     managerQuestions,
     engineerQuestions,
     internQuestions,
-    addMemeberQuestion,
+    addMemberQuestion,
 }

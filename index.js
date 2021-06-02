@@ -1,23 +1,65 @@
-const TemplateEngine = require("./src/TemplateEngine");
+const inquirer = require("inquirer");
 const fs = require("fs");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const TemplateEngine = require("./src/TemplateEngine");
+const managerQuestions = require("./src/questions").managerQuestions;
+const engineerQuestions = require("./src/questions").engineerQuestions;
+const internQuestions = require("./src/questions").internQuestions;
+const addMemberQuestion = require("./src/questions").addMemberQuestion;
 
-// let manager = new TemplateEngine("./src/manager.html");
-// manager.setData({ name: "john", email: "John@gmail.com", officeNumber: 101 });
-// let managerHTML = manager.getHTML();
+function buildTeam() {
+    return new Promise((res, rej) => {
 
-let engineer = new TemplateEngine("./src/engineer.html");
-engineer.setData({ name: "jane", employeeID: 101, email: "Jane@gmail.com", gitHub: "john" });
-let engineerHTML = engineer.getHTML();
+        const employees = [];
 
-let engineer1 = new TemplateEngine("./src/engineer.html");
-engineer1.setData({ name: "jane", employeeID: 101, email: "Jane@gmail.com", gitHub: "john" });
-let engineerHTML1 = engineer1.getHTML();
+        function addManager() {
+            inquirer.prompt(managerQuestions).then(({ name, employeeID, email, officeNumber }) => {
+                const manager = new Manager(name, employeeID, email, officeNumber);
+                employees.push(manager);
+                addMember();
+            })
+        }
 
-let template1 = new TemplateEngine("./src/index.html");
-template1.setData({ employees: engineerHTML + engineerHTML1 });
-let result = template1.getHTML();
+        function addEngineer() {
+            inquirer.prompt(engineerQuestions).then(({ name, employeeID, email, gitHub }) => {
+                const engineer = new Engineer(name, employeeID, email, gitHub);
+                employees.push(engineer);
+                addMember();
+            })
+        }
 
-fs.writeFileSync("./dist/index.html", result);
-fs.copyFileSync("./src/style.css", "./dist/style.css");
+        function addIntern() {
+            inquirer.prompt(internQuestions).then(({ name, employeeID, email, school }) => {
+                const intern = new Intern(name, employeeID, email, school);
+                employees.push(intern);
+                addMember();
+            })
+        }
 
-console.log(result);
+        function addMember() {
+            inquirer.prompt(addMemberQuestion).then(answers => {
+                const type = answers.addMember;
+                switch (type) {
+                    case "Engineer": addEngineer();
+                        break;
+                    case "Intern": addIntern();
+                        break;
+                    case "Team complete": res(employees);
+                }
+            });
+        }
+        addManager();
+    })
+}
+function init() {
+    buildTeam().then(employees => {
+        const employeesHTML = employees.map(el => el.getHTML()).join("");
+        const template = new TemplateEngine("./src/index.html");
+        template.setData({ employees: employeesHTML });
+        const result = template.getHTML();
+        fs.writeFileSync("./dist/index.html", result);
+    })
+}
+init();
