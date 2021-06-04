@@ -20,4 +20,4 @@ describe("Employee class", () => {
         const employee = new Employee("Jane", 1, "jane@gmail.com");
         expect(employee.getRole()).toEqual("Employee");
     });
-})
+});
