@@ -59,7 +59,9 @@ function init() {
         const template = new TemplateEngine("./src/index.html");
         template.setData({ employees: employeesHTML });
         const result = template.getHTML();
+        fs.mkdirSync("./dist/", { recursive: true });
         fs.writeFileSync("./dist/index.html", result);
+        fs.copyFileSync("./src/style.css", "./dist/style.css");
     })
 }
 init();
